@@ -1,7 +1,6 @@
-class UserController < ApplicationController
-
+class ProjectController < ApplicationController
   def index
-    @users = Urojects.all
+    @projects = Projects.all
   end
 
   def show
@@ -52,4 +51,17 @@ end
 
 
 
-end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

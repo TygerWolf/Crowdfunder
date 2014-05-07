@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_many :projects
-  has_many :pledges
+  has_many :project
+  has_many :pledge
 
   validates presence: true, on: :create
   validates presence: true
-
 end

@@ -1,4 +1,17 @@
 Crowdfunder::Application.routes.draw do
+
+  get "project/index"
+  get "project/show"
+  get "project/new"
+  get "project/edit"
+  resources :projects do
+    resources :pledges, only: :create
+  end
+
+  resources :users
+
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +66,3 @@ Crowdfunder::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
