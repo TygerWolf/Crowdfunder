@@ -3,7 +3,9 @@ class CreateBreakpoints < ActiveRecord::Migration
     create_table :breakpoints do |t|
       t.string :name
       t.text :description
-      t.integer :Price_in_dollars
+      t.integer :price_in_dollars
+      t.integer :project_id
+
 
       t.timestamps
     end

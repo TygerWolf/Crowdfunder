@@ -11,29 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507190004) do
+ActiveRecord::Schema.define(version: 20140507203317) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "breakpoints", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "Price_in_dollars"
+    t.integer  "price_in_dollars"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "pledges", force: true do |t|
+    t.integer  "price_in_dollars"
+    t.integer  "project_id"
+    t.integer  "backer_id"
+    t.integer  "breakpoint_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "projects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "goal_in_dollars"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
+    t.string   "email",            null: false
+    t.string   "crypted_password", null: false
+    t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

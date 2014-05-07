@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
+  authenticates_with_sorcery!
 
-  has_many :project
-  has_many :pledge
+  has_many :pledges
+  has_many :projects
+  # has_many :backed_projects, through: :pledges, source: :projects
 
-  validates presence: true, on: :create
-  validates presence: true
 end

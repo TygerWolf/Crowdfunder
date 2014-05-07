@@ -5,7 +5,8 @@ class CreateProjects < ActiveRecord::Migration
       t.text :description
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :Goal_in_dollars
+      t.integer :goal_in_dollars
+      t.integer :owner_id
 
 
       t.timestamps
