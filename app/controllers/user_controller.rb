@@ -1,50 +1,50 @@
 class UserController < ApplicationController
 
   def index
-    @users = Urojects.all
+    @users = Users.all
   end
 
   def show
-    @project = Projects.find(params[:id])
+    @user = Users.find(params[:id])
   end
 
   def new
-    @project = Project.new
+    @user = User.new
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @User = User.find(params[:id])
   end
 
   def create
-    @project = Project.new(project_params)
+    @user = User.new(project_params)
 
-    if @project.save
-      redirect_to projects_url
+    if @user.save
+      redirect_to users_url
     else
       render :new
     end
   end
 
   def update
-    @project = Project.find(params[:id])
+    @user = Users.find(params[:id])
 
-    if @project.update_attributes(project_params)
-      redirect_to project_path(@project)
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user)
     else
       render :edit
     end
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to project_path
+    @user = Users.find(params[:id])
+    @user.destroy
+    redirect_to user_path
   end
 
   private
-  def project_params
-    params.require(:project).permit (:name, :description, :start_time, :end_time, :pledge_goal)
+  def user_params
+    params.require(:user).permit (:email, :crypted_password, :salt, :created_at, :updated_at)
   end
 
 end

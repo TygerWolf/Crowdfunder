@@ -4,7 +4,7 @@ class CreatePledges < ActiveRecord::Migration
       t.integer :price_in_dollars
       t.integer :project_id
       t.integer :backer_id
-      t.integer :breakpoint_id
+      t.integer :tiers_id
 
       t.timestamps
     end

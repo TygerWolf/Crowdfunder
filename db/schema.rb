@@ -16,20 +16,11 @@ ActiveRecord::Schema.define(version: 20140507203317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "breakpoints", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "price_in_dollars"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pledges", force: true do |t|
     t.integer  "price_in_dollars"
     t.integer  "project_id"
     t.integer  "backer_id"
-    t.integer  "breakpoint_id"
+    t.integer  "tiers_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +32,15 @@ ActiveRecord::Schema.define(version: 20140507203317) do
     t.datetime "end_date"
     t.integer  "goal_in_dollars"
     t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tiers", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price_in_dollars"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
