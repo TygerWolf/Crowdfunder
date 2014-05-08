@@ -1,9 +1,5 @@
 Crowdfunder::Application.routes.draw do
 
-  get "project/index"
-  get "project/show"
-  get "project/new"
-  get "project/edit"
   resources :projects do
     resources :pledges, only: :create
   end

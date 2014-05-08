@@ -1,11 +1,11 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def index
-    @users = Users.all
+    @users = User.all
   end
 
   def show
-    @user = Users.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -27,7 +27,7 @@ class UserController < ApplicationController
   end
 
   def update
-    @user = Users.find(params[:id])
+    @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
@@ -37,14 +37,14 @@ class UserController < ApplicationController
   end
 
   def destroy
-    @user = Users.find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
     redirect_to user_path
   end
 
   private
   def user_params
-    params.require(:user).permit (:email, :crypted_password, :salt, :created_at, :updated_at)
+    params.require(:user).permit(:email, :crypted_password, :salt, :created_at, :updated_at)
   end
 
 end

@@ -1,11 +1,11 @@
-class TierController < ApplicationController
+class TiersController < ApplicationController
 
   def index
-    @tiers = Tiers.all
+    @tiers = Tier.all
   end
 
   def show
-    @tiers = Tiers.find(params[:id])
+    @tier = Tier.find(params[:id])
   end
 
   def new
@@ -13,11 +13,11 @@ class TierController < ApplicationController
   end
 
   def edit
-    @Tier = Tier.find(params[:id])
+    @tier = Tier.find(params[:id])
   end
 
   def create
-    @Tier = Tier.new(project_params)
+    @tier = Tier.new(project_params)
 
     if @tier.save
       redirect_to tiers_url
@@ -44,7 +44,7 @@ class TierController < ApplicationController
 
   private
   def tier_params
-    params.require(:tier).permit (:name, :description, :price_in_dollars, :project_id, :created_at, :updated_at)
+    params.require(:tier).permit(:name, :description, :price_in_dollars, :project_id, :created_at, :updated_at)
   end
 
 end
