@@ -17,10 +17,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(project_params)
+    debugger
+    @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_url
+      redirect_to projects_url
     else
       render :new
     end
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :crypted_password, :salt, :created_at, :updated_at)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end
@@ -52,4 +53,4 @@ end
 
 
 
-end
+
