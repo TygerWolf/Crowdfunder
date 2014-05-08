@@ -1,5 +1,3 @@
-<h1>Project#index</h1>
-<p>Find me in app/views/project/index.html.erb</p>
 
 <h1>Projects! These are the projects!</h1>
 
@@ -7,11 +5,11 @@
   <%= @projects.each do  |project| %>
   <%= link_to project_path(project.id) do %>
   <h2>
-      <%= project.goal_in_dollars %>
       <%= project.name %>
+      <%= project.goal_in_dollars %>
+
   </h2>
   <% end %>
-
 
 <% end %>
 

@@ -1,2 +1,39 @@
 <h1>Project#show</h1>
 <p>Find me in app/views/project/show.html.erb</p>
+
+<p>
+  <b>Name:</b>
+  <%=@project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @project.goal_in_dollars  %>
+</p>
+
+<p>
+  <b>Start Date:</b>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%= @project.end_date %>
+</p>
+
+<p>
+  <b>Owner Name</b>
+  <%= @project.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+
+
+
