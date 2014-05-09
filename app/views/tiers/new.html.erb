@@ -1,0 +1,30 @@
+<h1>Add a Tier</h1>
+
+<%= form_for([@project,@tier]) do |f| %>
+<% if @tier.errors.any? %>
+  <div id="error_explaination">
+    <h2><%= pluralize(@tier.errors.count, "error") %> Prohibited this tier from being saved:</h2>
+    <ul>
+    <% @tier.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price_in_dollars %>
+    <%= f.text_field :price_in_dollars %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

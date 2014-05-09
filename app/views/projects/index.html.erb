@@ -2,7 +2,7 @@
 <h1>Projects! These are the projects!</h1>
 
 <ul>
-  <%= @projects.each do  |project| %>
+  <% @projects.each do  |project| %>
   <%= link_to project_path(project.id) do %>
   <h2>
       <%= project.name %>

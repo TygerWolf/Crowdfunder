@@ -1,6 +1,4 @@
-<h1>Project#show</h1>
-<p>Find me in app/views/project/show.html.erb</p>
-
+<h1>Project</h1>
 <p>
   <b>Name:</b>
   <%=@project.name %>
@@ -31,9 +29,13 @@
   <%= @project.owner_id %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<p>
 
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'Add Tiers', new_project_tier_path(@project) %>
 
 
 

@@ -1,4 +1,5 @@
 class TiersController < ApplicationController
+  before_filter :load_project
 
   def index
     @tiers = Tier.all
@@ -9,6 +10,7 @@ class TiersController < ApplicationController
   end
 
   def new
+    # @project = Project.find(params[:project_id])
     @tier = Tier.new
   end
 
@@ -17,10 +19,10 @@ class TiersController < ApplicationController
   end
 
   def create
-    @tier = Tier.new(project_params)
+    @tier = Tier.new(tier_params)
 
     if @tier.save
-      redirect_to tiers_url
+      redirect_to @project
     else
       render :new
     end
@@ -45,6 +47,10 @@ class TiersController < ApplicationController
   private
   def tier_params
     params.require(:tier).permit(:name, :description, :price_in_dollars, :project_id, :created_at, :updated_at)
+  end
+
+  def load_project
+    @project = Project.find(params[:project_id])
   end
 
 end
