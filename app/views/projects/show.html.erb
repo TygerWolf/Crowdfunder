@@ -29,9 +29,22 @@
   <%= @project.owner_id %>
 </p>
 
-<p>
 
-</p>
+<h2>Tiers</h2>
+<% @tier.each do |tier| %>
+  <p>
+    <b>Tier Name:</b>
+    <%= tier.name %>
+  </p>
+  <p>
+    <b>Tier Descrption:</b>
+    <%= tier.description %>
+  </p>
+  <p>
+    <b>Price in Dollars</b>
+    <%= tier.price_in_dollars %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %> |

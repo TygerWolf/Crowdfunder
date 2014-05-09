@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @tier = Tier.where("project_id = ?","#{params[:id]}").all
   end
 
   def new
@@ -44,7 +45,7 @@ class ProjectsController < ApplicationController
 
   private
     def project_params
-      params.require(:project).permit(:name, :description, :start_date, :end_date, :goal_in_dollars, :owner_id)
+      params.require(:project).permit(:name, :description, :start_date, :end_date, :goal_in_dollars, :owner_id, :project_id)
     end
 end
 

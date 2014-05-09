@@ -19,7 +19,11 @@ class TiersController < ApplicationController
   end
 
   def create
+    # project = Project.find( params[:project_id] )
+    # project.tiers.build( tier_params )
+
     @tier = Tier.new(tier_params)
+    @tier.project_id = params[:project_id]
 
     if @tier.save
       redirect_to @project
@@ -46,7 +50,7 @@ class TiersController < ApplicationController
 
   private
   def tier_params
-    params.require(:tier).permit(:name, :description, :price_in_dollars, :project_id, :created_at, :updated_at)
+    params.require(:tier).permit(:name, :description, :price_in_dollars, :created_at, :updated_at)
   end
 
   def load_project
